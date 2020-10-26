@@ -1,7 +1,7 @@
 <?php
 //Dados da Empresa	
-$idSis_Empresa=2;
-define("IDSIS_EMPRESA", "2");
+$idSis_Empresa=1;
+define("IDSIS_EMPRESA", "1");
 
 	require '../enkontraki_back/application/config/conexao.php';
 	require '../enkontraki_back/application/controllers/select.php';

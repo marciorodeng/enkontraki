@@ -33,6 +33,21 @@ if(isset($_POST['notificationType']) && $_POST['notificationType'] == 'transacti
 	$curl->bindValue(2,$xml->reference);	
 	$curl->execute();
 
+	$query_produto = "	SELECT *
+					FROM 
+						App_Produto_Pagamento
+					WHERE 
+						idApp_Pagamento = '" . $xml->reference . "'
+					LIMIT 1";
+
+	$resultado_produto = $pdo->prepare($query_produto);
+	$resultado_produto->execute();
+	
+	while ($row_produto = $resultado_produto->fetch(PDO::FETCH_ASSOC)) {
+		$qtd_prod = $row_produto['QtdProduto'];
+		$qtd_inc_prod = $row_produto['QtdIncrementoProduto'];
+		$qtd = $qtd_prod * $qtd_inc_prod;
+	}
 	
 	$query_car = "	SELECT *
 					FROM 
@@ -80,9 +95,11 @@ if(isset($_POST['notificationType']) && $_POST['notificationType'] == 'transacti
 		
 		$curl1=$pdo->prepare("update Sis_Empresa set DataDeValidade=? where idSis_Empresa=?");
 		if(strtotime($datadehoje) >= strtotime($datavalidade)){
-			$curl1->bindValue(1,date('Y-m-d', strtotime('+1 month')));
+			//$curl1->bindValue(1,date('Y-m-d', strtotime('+1 month')));
+			$curl1->bindValue(1,date('Y-m-d', strtotime('+ ' . $qtd . ' month')));
 		}else{
-			$curl1->bindValue(1,date('Y-m-d', strtotime('+ 1 month',strtotime($datavalidade))));
+			//$curl1->bindValue(1,date('Y-m-d', strtotime('+1 month',strtotime($datavalidade))));
+			$curl1->bindValue(1,date('Y-m-d', strtotime('+ ' . $qtd . ' month',strtotime($datavalidade))));
 		}
 		$curl1->bindValue(2,$id_empresa);	
 		$curl1->execute();
