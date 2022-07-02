@@ -12,8 +12,8 @@ $ativo_pagseguro = $row_documento['Ativo_Pagseguro'];
 
 define("SITE_EMPRESA", $row_empresa['Site']);
 
-define("URL", "https://enkontraki.com.br/enkontraki/");
-define("URL_NOTIFICACAO", "https://enkontraki.com.br/enkontraki/notificacao.php");
+define("URL", "https://www.enkontraki.com.br/enkontraki/");
+define("URL_NOTIFICACAO", "https://www.enkontraki.com.br/enkontraki/notificacao.php");
 define("EMAIL_LOJA", "marciorodeng@gmail.com");
 define("EMAIL_PAGSEGURO", "marciorodeng@gmail.com");
 define("MOEDA_PAGAMENTO", "BRL");

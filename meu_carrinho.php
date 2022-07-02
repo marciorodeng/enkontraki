@@ -20,7 +20,7 @@
 
 		<?php require_once ("../enkontraki_back/application/views/navegador.php"); ?>
 
-		<?php require_once ("../enkontraki_back/application/views/slide.php"); ?>	
+		<?php #require_once ("../enkontraki_back/application/views/slide.php"); ?>	
 		
 		<?php require_once ("../enkontraki_back/application/views/meu_carrinho.php"); ?>
 		

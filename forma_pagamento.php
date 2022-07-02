@@ -1,14 +1,13 @@
 <?php 
-	session_start();	
+	session_start();
 	
-	include './configuracao.php';	
+	require 'configuracao.php';	
 	
 	//require '../enkontraki_back/application/config/conn.php';
-	
 	include '../enkontraki_back/application/config/conexao.php';
-
+	
 	require '../enkontraki_back/application/controllers/select.php';
-
+	
 ?>
 
 <!DOCTYPE html>
@@ -19,12 +18,12 @@
     <body>
 
 		<?php require_once ("../enkontraki_back/application/views/navegador.php"); ?>
-
-		<?php #require_once ("../enkontraki_back/application/views/slide.php"); ?>
-	
-		<?php require_once ("../enkontraki_back/application/views/pedido.php"); ?>
-	
+		
+		<?php require_once ("../enkontraki_back/application/views/forma_pagamento.php"); ?>
+		
 		<?php require_once ("../enkontraki_back/application/views/footer.php"); ?>
+		
+		<script src="../enkontraki_back/js/Javascript.js"></script>		
 		
 	</body>
 	
